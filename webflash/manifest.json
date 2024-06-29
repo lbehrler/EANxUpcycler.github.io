@@ -1,0 +1,21 @@
+{
+    "name": "EAN Upcycler",
+    "new_install_prompt_erase": true,
+    "builds": [
+      {
+        "chipFamily": "ESP32",
+        "parts": [
+          { "path": "eanucB50.bootloader.bin", "offset": 0 },
+          { "path": "eanucB50.partitions.bin", "offset": 32768 },
+          { "path": "eanucB50.firmware.bin", "offset": 57344 }
+          
+        ]
+      },
+      {
+        "chipFamily": "ESP8266",
+        "parts": [
+          { "path": "esp8266/SerialHelloWorld.ino.bin", "offset": 0 }
+        ]
+      }
+    ]
+  }
