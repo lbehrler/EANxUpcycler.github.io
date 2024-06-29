@@ -17,17 +17,26 @@
     <p>Note that this installer only works with EANx-Upcycler Devices</p>
 
 
-
     <div id="main" style="display: none;">
         <br>
-        <script type="module" src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module">
+        <script type="module" src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module">  </script>
+        <script>
+        const button = document.querySelector('esp-web-install-button');
+        button.overrides = {
+          checkSameFirmware(manifest, improvInfo) {
+            const manifestFirmware = manifest.name.toLowerCase();
+            const deviceFirmware = improvInfo.firmware.toLowerCase();
+            return manifestFirmware.includes(deviceFirmware);
+          }
+        };
         </script>
+        <br>
         <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
         <br>
         <p>NOTE: Make sure to close anything using your devices com port (e.g. Serial monitor)</p>
     </div>
     <div id="notSupported" style="display: none;">
-        Your browser does not support the Web Serial API. Try Chrome or Edge
+        Your browser does not support the Web Serial API. Try Chrome, Safari  or Edge
     </div>
 
     <script>
