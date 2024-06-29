@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
 
-
 <body>
-    <h1>EAN Upcycler Firmware Update - ESP Web Tools</h1>
-            
-            <p >You've reached the installer page of the EAN Upcycler project, where you can update the firmware on your device</p>
-            <h2>Install / Update Steps</h2>
-            
-                <ol>
-                  <li>Plug the device to your computer using a USB cable</li>
-                  <li>Select the firmware version you wish to use (Standard or GUI)</li>             
-                  <li>Cick on the connect button and follow the steps</li>
-                </ol>  
-    
-            <p>Note that this installer only works with EAN Upcycler Devices</p>
-    
+    <h1>EANx-Upcycler Firmware Update - ESP Web Tools</h1>
+
+    <p>You've reached the installer page of the EANx-Upcycler project, where you can update the firmware on your device
+    </p>
+    <h2>Install / Update Steps</h2>
+
+    <ol>
+        <li>Plug the device to your computer using a USB cable</li>
+        <li>Select the firmware version you wish to use (Standard or GUI)</li>
+        <li>Cick on the connect button and follow the steps</li>
+    </ol>
+
+    <p>Note that this installer only works with EANx-Upcycler Devices</p>
+
+    <div class="footer">
+        <a href="https://github.com/lbehrler/EANx-Upcycler">EANx-Upcycler</a> &mdash;
+        Installer powered by <a href="https://esphome.github.io/esp-web-tools/">ESP Web Tools</a>.
+    </div>
+
     <div id="main" style="display: none;">
         <br>
-        <script
-            type="module"
-            src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module">
+        <script type="module" src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module">
         </script>
         <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
         <br>
@@ -29,10 +32,9 @@
     <div id="notSupported" style="display: none;">
         Your browser does not support the Web Serial API. Try Chrome or Edge
     </div>
-    
 
     <script>
-        if(navigator.serial){
+        if (navigator.serial) {
             document.getElementById("notSupported").style.display = 'none';
             document.getElementById("main").style.display = 'block';
         } else {
